@@ -4,9 +4,9 @@ const initialState = {
   isLoading: false,
 };
 
-const GET_LEAGUE = 'FOOT_INFO/LEAGUE_GET_LEAGUE';
-const GET_LEAGUE_SUCCESS = 'FOOT_INFO/LEAGUE_GET_LEAGUE_SUCCESS';
-const GET_LEAGUE_FAILURE = 'FOOT_INFO/LEAGUE_GET_LEAGUE_FAILURE';
+export const GET_LEAGUE = 'FOOT_INFO/LEAGUE_GET_LEAGUE';
+export const GET_LEAGUE_SUCCESS = 'FOOT_INFO/LEAGUE_GET_LEAGUE_SUCCESS';
+export const GET_LEAGUE_FAILURE = 'FOOT_INFO/LEAGUE_GET_LEAGUE_FAILURE';
 
 export const fetchLeagueStatus = (payload) => ({
   type: GET_LEAGUE,

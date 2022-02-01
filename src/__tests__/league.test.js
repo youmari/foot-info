@@ -1,5 +1,10 @@
 import {
-  fetchLeagueStatus, getLeague, getLeagueFailure, GET_LEAGUE, GET_LEAGUE_FAILURE, GET_LEAGUE_SUCCESS,
+  fetchLeagueStatus,
+  getLeague,
+  getLeagueFailure,
+  GET_LEAGUE,
+  GET_LEAGUE_FAILURE,
+  GET_LEAGUE_SUCCESS,
 } from '../redux/detailsPage/league';
 
 describe('Tests for Leagues actions', () => {
