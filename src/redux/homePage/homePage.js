@@ -21,7 +21,8 @@ export const getCountriesFailure = (payload) => ({
   type: GET_COUNTRIES_FAILURE,
   payload,
 });
-const footBallReducer = (state = initialState, action) => {
+
+const countriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES:
       return { ...state, isLoading: action.payload.bool };
@@ -34,4 +35,4 @@ const footBallReducer = (state = initialState, action) => {
   }
 };
 
-export default footBallReducer;
+export default countriesReducer;

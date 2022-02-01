@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { GlobeIcon } from '@heroicons/react/outline';
+import { Link } from 'react-router-dom';
 
 const Country = ({ country: { name, code, flag } }) => (
-  <article className=" flex flex-col justify-between bg-blue-500 h-40 even:bg-blue-600">
+  <Link to={name} className=" flex flex-col justify-between bg-blue-500 h-40 even:bg-blue-600">
     {name === 'World' ? (
       <GlobeIcon />
     ) : (
@@ -16,7 +17,7 @@ const Country = ({ country: { name, code, flag } }) => (
       {name}
     </h3>
     <p className="font-lato text-lg text-right text-white mr-2">{code}</p>
-  </article>
+  </Link>
 );
 
 Country.propTypes = {

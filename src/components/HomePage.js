@@ -7,7 +7,7 @@ import Country from './Country';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const countriesData = useSelector((state) => state.onSuccess);
+  const countriesData = useSelector((state) => state.countries.onSuccess);
   useEffect(async () => {
     try {
       dispatch(fetchCountriesStatus({ bool: true }));
