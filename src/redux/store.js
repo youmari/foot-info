@@ -1,13 +1,16 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
-import footBallReducer from './homePage/homePage';
+import LeagueReducer from './detailsPage/league';
+import countriesReducer from './homePage/homePage';
 
-// const reducers = combineReducers(
-//   footBallReducer,
-// );
+const reducers = combineReducers({
+  countries: countriesReducer,
+  leagues: LeagueReducer,
+});
+
 const middlewares = [logger];
 
-const store = createStore(footBallReducer,
+const store = createStore(reducers,
   applyMiddleware(...middlewares));
 
 export default store;
