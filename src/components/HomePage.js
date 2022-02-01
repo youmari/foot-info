@@ -9,13 +9,15 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const countriesData = useSelector((state) => state.countries.onSuccess);
   useEffect(async () => {
-    try {
-      dispatch(fetchCountriesStatus({ bool: true }));
-      const { data: { response } } = await fetchData('countries');
-      dispatch(fetchCountriesStatus({ bool: false }));
-      dispatch(getCountries(response));
-    } catch (err) {
-      dispatch(getCountriesFailure({ err }));
+    if (!countriesData.length) {
+      try {
+        dispatch(fetchCountriesStatus({ bool: true }));
+        const { data: { response } } = await fetchData('countries');
+        dispatch(fetchCountriesStatus({ bool: false }));
+        dispatch(getCountries(response));
+      } catch (err) {
+        dispatch(getCountriesFailure({ err }));
+      }
     }
   }, []);
 

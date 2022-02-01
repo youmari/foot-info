@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 import fetchData from '../api/api';
@@ -8,7 +8,7 @@ import { fetchLeagueStatus, getLeague, getLeagueFailure } from '../redux/details
 
 const DetailsPage = ({ country: { name, flag, code } }) => {
   const dispatch = useDispatch();
-  // const leagues = useSelector((state) => state.leagues.onSuccess);
+  const leagues = useSelector((state) => state.leagues.onSuccess);
   useEffect(async () => {
     try {
       dispatch(fetchLeagueStatus({ bool: true }));
@@ -22,13 +22,14 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
     }
   }, []);
   return (
-    <div className="">
-      <div className="bg-blue-700">
-        <Link to="/" className="underline font-gill text-white">
+    <div className="bg-blue-500 h-screen">
+      <div className="flex items-center bg-blue-700">
+        <Link to="/" className=" text-white inline">
           <ArrowLeftIcon className="w-11 h-auto p-3" />
         </Link>
-        <h2 className="text-xl text-white">
+        <h2 className="ml-3 text-lg text-white">
           Details about
+          {'  '}
           {name}
           {' '}
           Leagues
@@ -49,8 +50,17 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
       </article>
       <h4 className="bg-blue-700 text-white font-lato text-base pl-2">
         Leagues and Details about leagues in
+        {' '}
         {name}
       </h4>
+      <div className="bg-blue-500">
+        {leagues?.map((league) => (
+          <article className="h-20 flex items-center even:bg-blue-700 gap-3" key={league.league.id}>
+            <img className="w-16 h-auto p-3" src={league.league.logo} alt="league logo" />
+            <h3 className="font-lato text-lg text-white">{league.league.name}</h3>
+          </article>
+        ))}
+      </div>
     </div>
   );
 };
