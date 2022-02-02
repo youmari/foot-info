@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import { GlobeIcon } from '@heroicons/react/outline';
+import { ArrowCircleRightIcon, GlobeIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 
 const Country = ({ country: { name, code, flag } }) => (
-  <Link to={name} className="flex flex-col justify-between bg-blue-900 h-40 link">
+  <Link to={name} className="flex flex-col justify-between bg-blue-900 h-fit link">
+    <ArrowCircleRightIcon className="w-4 text-white self-end m-1" />
     {name === 'World' ? (
       <GlobeIcon />
     ) : (

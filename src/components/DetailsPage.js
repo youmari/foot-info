@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ArrowLeftIcon } from '@heroicons/react/solid';
+import { ArrowLeftIcon, CogIcon, MicrophoneIcon } from '@heroicons/react/solid';
+import { ArrowCircleRightIcon } from '@heroicons/react/outline';
 import fetchData from '../api/api';
 import {
   fetchLeagueStatus,
@@ -27,6 +28,10 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
   }, []);
   return (
     <div className="bg-blue-500 h-screen">
+      <div className="flex justify-end bg-blue-800">
+        <MicrophoneIcon className="w-5 text-white cursor-pointer" />
+        <CogIcon className="w-5 text-white m-3 ml-6 mr-3 cursor-pointer" />
+      </div>
       <div className="flex items-center bg-blue-700">
         <Link to="/" className=" text-white inline">
           <ArrowLeftIcon className="w-11 h-auto p-3" />
@@ -60,7 +65,7 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
       <div className="bg-blue-500">
         {leagues?.map((league) => (
           <article
-            className="h-20 flex items-center bg-blue-700 even:bg-blue-900 gap-3"
+            className="h-20 flex items-center bg-blue-700 even:bg-blue-900 gap-3 relative"
             key={league.league.id}
           >
             <img
@@ -71,6 +76,7 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
             <h3 className="font-lato text-lg text-white">
               {league.league.name}
             </h3>
+            <ArrowCircleRightIcon className="w-4 text-white absolute right-3" />
           </article>
         ))}
       </div>
