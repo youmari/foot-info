@@ -5,7 +5,7 @@ import {
   GET_COUNTRIES,
   GET_COUNTRIES_FAILURE,
   GET_COUNTRIES_SUCCESS,
-} from '../redux/homePage/homePage';
+} from '../homePage/homePage';
 
 describe('Tests for Countries  actions', () => {
   test('should return an object with type and object with a boolean ', () => {

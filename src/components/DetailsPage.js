@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 import fetchData from '../api/api';
-import { fetchLeagueStatus, getLeague, getLeagueFailure } from '../redux/detailsPage/league';
+import {
+  fetchLeagueStatus,
+  getLeague,
+  getLeagueFailure,
+} from '../redux/detailsPage/league';
 
 const DetailsPage = ({ country: { name, flag, code } }) => {
   const dispatch = useDispatch();
@@ -48,16 +52,25 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
           <p className="font-lato text-lg text-right text-white mr-2">{code}</p>
         </div>
       </article>
-      <h4 className="bg-blue-700 text-white font-lato text-base pl-2">
+      <h4 className="bg-blue-800 text-white font-lato text-base pl-2">
         Leagues and Details about leagues in
         {' '}
         {name}
       </h4>
       <div className="bg-blue-500">
         {leagues?.map((league) => (
-          <article className="h-20 flex items-center even:bg-blue-700 gap-3" key={league.league.id}>
-            <img className="w-16 h-auto p-3" src={league.league.logo} alt="league logo" />
-            <h3 className="font-lato text-lg text-white">{league.league.name}</h3>
+          <article
+            className="h-20 flex items-center bg-blue-700 even:bg-blue-900 gap-3"
+            key={league.league.id}
+          >
+            <img
+              className="w-16 h-auto p-3"
+              src={league.league.logo}
+              alt="league logo"
+            />
+            <h3 className="font-lato text-lg text-white">
+              {league.league.name}
+            </h3>
           </article>
         ))}
       </div>

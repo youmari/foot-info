@@ -5,7 +5,7 @@ import {
   GET_LEAGUE,
   GET_LEAGUE_FAILURE,
   GET_LEAGUE_SUCCESS,
-} from '../redux/detailsPage/league';
+} from '../detailsPage/league';
 
 describe('Tests for Leagues actions', () => {
   test('should return an object with type and object with a boolean ', () => {

@@ -23,8 +23,8 @@ const HomePage = () => {
 
   return (
     <>
-      <h2 className="font-gill bg-blue-500">Information by Countries</h2>
-      <div className="grid grid-cols-2">
+      <h2 className="font-gill bg-blue-800 text-white text-sm  pl-2">Leagues by Countries</h2>
+      <div className="grid grid-cols-2 h-full bg-blue-700">
         {countriesData?.map((country) => (
           <Country key={uuid()} country={country} />
         ))}

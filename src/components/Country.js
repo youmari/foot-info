@@ -3,7 +3,7 @@ import { GlobeIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 
 const Country = ({ country: { name, code, flag } }) => (
-  <Link to={name} className=" flex flex-col justify-between bg-blue-500 h-40 even:bg-blue-600">
+  <Link to={name} className="flex flex-col justify-between bg-blue-900 h-40 link">
     {name === 'World' ? (
       <GlobeIcon />
     ) : (
