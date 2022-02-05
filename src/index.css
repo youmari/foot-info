@@ -1,0 +1,19 @@
+/* stylelint-disable scss/at-rule-no-unknown */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link:nth-of-type(-3n+3),
+.link:nth-of-type(4n+2),
+.link:nth-of-type(7),
+.link:nth-of-type(10),
+.link:nth-of-type(11),
+.link:nth-of-type(14),
+.link:nth-of-type(15),
+.link:nth-of-type(18),
+.link:nth-of-type(19),
+.link:nth-of-type(22) {
+  background-color: #3f62a4;
+}
