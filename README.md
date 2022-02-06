@@ -15,7 +15,7 @@
 
 ## Live demo
 
-[Live demo](https://foot-info-youmari.netlify.app/)
+[Live demo](https://foot-info.herokuapp.com/)
 
 
 ## Getting Started
