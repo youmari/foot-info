@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ArrowLeftIcon, CogIcon, MicrophoneIcon } from '@heroicons/react/solid';
 import { ArrowCircleRightIcon } from '@heroicons/react/outline';
 import fetchData from '../api/api';
@@ -11,7 +11,8 @@ import {
   getLeagueFailure,
 } from '../redux/detailsPage/league';
 
-const DetailsPage = ({ country: { name, flag, code } }) => {
+const DetailsPage = () => {
+  const { countryId } = useParams();
   const dispatch = useDispatch();
   const leagues = useSelector((state) => state.leagues.onSuccess);
   useEffect(async () => {
@@ -19,7 +20,7 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
       dispatch(fetchLeagueStatus({ bool: true }));
       const {
         data: { response },
-      } = await fetchData(`leagues?country=${name}`);
+      } = await fetchData(`leagues?country=${countryId}`);
       dispatch(fetchLeagueStatus({ bool: false }));
       dispatch(getLeague(response));
     } catch (err) {
@@ -39,53 +40,57 @@ const DetailsPage = ({ country: { name, flag, code } }) => {
         <h2 className="ml-3 text-lg text-white">
           Details about
           {'  '}
-          {name}
-          {' '}
+          {leagues[0]?.country.name}
+          {'  '}
           Leagues
         </h2>
       </div>
       <article className="flex justify-around bg-blue-500 p-3">
         <img
           className="h-auto w-32 self-center p-1"
-          src={flag}
+          src={leagues[0]?.country.flag}
           alt="Country flag"
         />
         <div className="flex flex-col justify-end">
           <h3 className="font-gill font-bold text-white text-xl text-right mr-2">
-            {name}
+            {leagues[0]?.country.name}
           </h3>
-          <p className="font-lato text-lg text-right text-white mr-2">{code}</p>
+          <p className="font-lato text-lg text-right text-white mr-2">
+            {leagues[0]?.country.code}
+          </p>
         </div>
       </article>
       <h4 className="bg-blue-800 text-white font-lato text-base pl-2">
         Leagues and Details about leagues in
         {' '}
-        {name}
+        {leagues[0]?.country.name}
       </h4>
-      <div className="bg-blue-500">
-        {leagues?.map((league) => (
-          <article
-            className="h-20 flex items-center bg-blue-700 even:bg-blue-900 gap-3 relative"
-            key={league.league.id}
-          >
-            <img
-              className="w-16 h-auto p-3"
-              src={league.league.logo}
-              alt="league logo"
-            />
-            <h3 className="font-lato text-lg text-white">
-              {league.league.name}
-            </h3>
-            <ArrowCircleRightIcon className="w-4 text-white absolute right-3" />
-          </article>
-        ))}
-      </div>
+      {leagues?.map((league) => (
+        <div key={league.league.id}>
+          <div className="bg-blue-500">
+            <article
+              className="h-20 flex items-center bg-blue-700 even:bg-blue-900 gap-3 relative"
+              key={league.league.id}
+            >
+              <img
+                className="w-16 h-auto p-3"
+                src={league.league.logo}
+                alt="league logo"
+              />
+              <h3 className="font-lato text-lg text-white">
+                {league.league.name}
+              </h3>
+              <ArrowCircleRightIcon className="w-4 text-white absolute right-3" />
+            </article>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
 
 export default DetailsPage;
 
-DetailsPage.propTypes = {
-  country: PropTypes.objectOf(PropTypes.string).isRequired,
-};
+// DetailsPage.propTypes = {
+//   country: PropTypes.objectOf(PropTypes.string).isRequired,
+// };

@@ -2,7 +2,6 @@ import { CogIcon, MicrophoneIcon } from '@heroicons/react/solid';
 import { GlobeIcon } from '@heroicons/react/outline';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { v4 as uuid } from 'uuid';
 import fetchData from '../api/api';
 import { fetchCountriesStatus, getCountries, getCountriesFailure } from '../redux/homePage/homePage';
 import Country from './Country';
@@ -43,7 +42,7 @@ const HomePage = () => {
       <h2 className="font-gill bg-blue-800 text-white text-sm  pl-2">Leagues by Countries</h2>
       <div className="grid grid-cols-2 h-full bg-blue-700">
         {filtredCountriesData?.map((country) => (
-          <Country key={uuid()} country={country} />
+          <Country key={country.name} country={country} />
         ))}
       </div>
     </div>

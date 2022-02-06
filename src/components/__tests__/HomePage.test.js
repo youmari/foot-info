@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import store from '../../redux/store';
 import HomePage from '../HomePage';
-import LeagueDetails from '../LeagueDetails';
+// import LeagueDetails from '../LeagueDetails';
 
 describe('HomePage test', () => {
   test('should HomePage match the snapchot', async () => {
@@ -44,7 +44,7 @@ describe('HomePage test', () => {
           <Routes>
             <Route element={<HomePage />} path="/" />
           </Routes>
-          <LeagueDetails />
+          {/* <LeagueDetails /> */}
         </Router>
       </Provider>,
     );
