@@ -14,8 +14,13 @@ const GoBackBar = ({ name, to = '/' }) => (
 );
 
 GoBackBar.propTypes = {
-  name: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  to: PropTypes.string,
+};
+
+GoBackBar.defaultProps = {
+  name: '',
+  to: '',
 };
 
 export default GoBackBar;

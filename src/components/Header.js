@@ -19,9 +19,15 @@ const Header = ({ name, flag, code }) => (
 );
 
 Header.propTypes = {
-  name: PropTypes.string.isRequired,
-  flag: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  flag: PropTypes.string,
+  code: PropTypes.string,
+};
+
+Header.defaultProps = {
+  name: '',
+  flag: '',
+  code: '',
 };
 
 export default Header;
