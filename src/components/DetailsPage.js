@@ -70,7 +70,8 @@ const DetailsPage = () => {
           {onSuccess?.map((league) => (
             <div key={league.league.id}>
               <div className="bg-blue-500">
-                <article
+                <Link
+                  to={`${league.league.id}`}
                   className="h-20 flex items-center bg-blue-700 even:bg-blue-900 gap-3 relative"
                   key={league.league.id}
                 >
@@ -83,7 +84,7 @@ const DetailsPage = () => {
                     {league.league.name}
                   </h3>
                   <ArrowCircleRightIcon className="w-4 text-white absolute right-3" />
-                </article>
+                </Link>
               </div>
             </div>
           ))}
