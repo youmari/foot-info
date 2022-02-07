@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -12,11 +11,13 @@ import {
 import Bar from './Bar';
 import GoBackBar from './GoBackBar';
 import Loading from './Loading';
+import Header from './Header';
 
 const DetailsPage = () => {
   const { countryId } = useParams();
   const dispatch = useDispatch();
   const { onSuccess, isLoading } = useSelector((state) => state.leagues);
+
   useEffect(async () => {
     try {
       dispatch(fetchLeagueStatus({ bool: true }));
@@ -35,21 +36,11 @@ const DetailsPage = () => {
       {!isLoading ? (
         <>
           <GoBackBar name={`Details about ${onSuccess[0]?.country.name} leagues`} to="/" />
-          <article className="flex justify-around bg-blue-500 p-3">
-            <img
-              className="h-auto w-32 self-center p-1"
-              src={onSuccess[0]?.country.flag}
-              alt="Country flag"
-            />
-            <div className="flex flex-col justify-end">
-              <h3 className="font-gill font-bold text-white text-xl text-right mr-2">
-                {onSuccess[0]?.country.name}
-              </h3>
-              <p className="font-lato text-lg text-right text-white mr-2">
-                {onSuccess[0]?.country.code}
-              </p>
-            </div>
-          </article>
+          <Header
+            name={onSuccess[0]?.country.name}
+            flag={onSuccess[0]?.country.flag}
+            code={onSuccess[0]?.country.code}
+          />
           <h4 className="bg-blue-800 text-white font-lato text-base pl-2">
             Details about leagues in
             {' '}
@@ -85,7 +76,3 @@ const DetailsPage = () => {
 };
 
 export default DetailsPage;
-
-// DetailsPage.propTypes = {
-//   country: PropTypes.objectOf(PropTypes.string).isRequired,
-// };
