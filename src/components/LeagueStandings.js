@@ -34,7 +34,10 @@ const LeagueStandings = () => {
       <Bar />
       {!isLoading ? (
         <>
-          <GoBackBar name={`Details about ${onSuccess[0]?.league.name}`} />
+          <GoBackBar
+            name={`Details about ${onSuccess[0]?.league.name}`}
+            to={`/${onSuccess[0]?.league.country}`}
+          />
           <Header
             name={onSuccess[0]?.league.name}
             flag={onSuccess[0]?.league.logo}
