@@ -1,9 +1,9 @@
-import { CogIcon, MicrophoneIcon } from '@heroicons/react/solid';
 import { GlobeIcon } from '@heroicons/react/outline';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import fetchData from '../api/api';
 import { fetchCountriesStatus, getCountries, getCountriesFailure } from '../redux/homePage/homePage';
+import Bar from './Bar';
 import Country from './Country';
 
 const HomePage = () => {
@@ -28,10 +28,7 @@ const HomePage = () => {
 
   return (
     <div className="bg-blue-700">
-      <div className="flex justify-end bg-blue-800">
-        <MicrophoneIcon className="w-5 text-white cursor-pointer" />
-        <CogIcon className="w-5 text-white m-3 ml-6 mr-3 cursor-pointer" />
-      </div>
+      <Bar />
       <div className="flex justify-center items-center p-4">
         <GlobeIcon className="w-14 text-white" />
         <h2 className="text-2xl font-gill font-bold text-white">World Leagues info</h2>

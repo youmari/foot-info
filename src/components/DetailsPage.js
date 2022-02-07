@@ -2,14 +2,16 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeftIcon, CogIcon, MicrophoneIcon } from '@heroicons/react/solid';
-import { ArrowCircleRightIcon, RefreshIcon } from '@heroicons/react/outline';
+import { ArrowCircleRightIcon } from '@heroicons/react/outline';
 import fetchData from '../api/api';
 import {
   fetchLeagueStatus,
   getLeague,
   getLeagueFailure,
 } from '../redux/detailsPage/league';
+import Bar from './Bar';
+import GoBackBar from './GoBackBar';
+import Loading from './Loading';
 
 const DetailsPage = () => {
   const { countryId } = useParams();
@@ -29,24 +31,10 @@ const DetailsPage = () => {
   }, []);
   return (
     <div className="bg-blue-500 h-screen">
-      <div className="flex justify-end bg-blue-800">
-        <MicrophoneIcon className="w-5 text-white cursor-pointer" />
-        <CogIcon className="w-5 text-white m-3 ml-6 mr-3 cursor-pointer" />
-      </div>
+      <Bar />
       {!isLoading ? (
         <>
-          <div className="flex items-center bg-blue-700">
-            <Link to="/" className=" text-white inline">
-              <ArrowLeftIcon className="w-11 h-auto p-3" />
-            </Link>
-            <h2 className="ml-3 text-lg text-white">
-              Details about
-              {'  '}
-              {onSuccess[0]?.country.name}
-              {'  '}
-              Leagues
-            </h2>
-          </div>
+          <GoBackBar name={`Details about ${onSuccess[0]?.country.name} leagues`} to="/" />
           <article className="flex justify-around bg-blue-500 p-3">
             <img
               className="h-auto w-32 self-center p-1"
@@ -63,7 +51,7 @@ const DetailsPage = () => {
             </div>
           </article>
           <h4 className="bg-blue-800 text-white font-lato text-base pl-2">
-            onSuccess and Details about leagues in
+            Details about leagues in
             {' '}
             {onSuccess[0]?.country.name}
           </h4>
@@ -90,10 +78,7 @@ const DetailsPage = () => {
           ))}
         </>
       ) : (
-        <div className="h-full flex flex-col items-center justify-center">
-          <RefreshIcon className="w-14 text-white animate-spin" />
-          <p className="font-lato font-bold text-xl text-white">Loading...</p>
-        </div>
+        <Loading />
       )}
     </div>
   );
