@@ -1,5 +1,5 @@
 # foot-info
-> foot-info is a web application where you can information about football leagues filtred by Countries 
+> foot-info is a web application where you can see information about football leagues filtered by Countries
 
 ## Built With
 
@@ -15,7 +15,7 @@
 
 ## Live demo
 
-[Live demo](https://foot-info-youmari.netlify.app/)
+[Live demo](https://foot-info.herokuapp.com/)
 
 
 ## Getting Started
