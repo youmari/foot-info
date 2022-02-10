@@ -6,7 +6,7 @@ const Country = ({ country: { name, code, flag } }) => (
   <Link to={name} title={name} className="flex flex-col justify-between bg-blue-900 h-fit link">
     <ArrowCircleRightIcon className="w-4 text-white self-end m-1" />
     {name === 'World' ? (
-      <GlobeIcon />
+      <GlobeIcon className="w-32 ml-6 text-white" />
     ) : (
       <img
         className="h-auto w-32 self-center p-1"
