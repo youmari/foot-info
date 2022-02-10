@@ -2,15 +2,15 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import fetchData from '../api/api';
-import Bar from './Bar';
 import {
   fetchLeagueStandingsStatus,
   getLeagueStandings,
   getLeagueStandingsFailure,
 } from '../redux/LeagueStandings/leagueStandings';
-import GoBackBar from './GoBackBar';
-import Loading from './Loading';
-import Header from './Header';
+import Bar from '../components/Bar';
+import GoBackBar from '../components/GoBackBar';
+import Loading from '../components/Loading';
+import Header from '../components/Header';
 
 const LeagueStandings = () => {
   const { leagueId } = useParams();

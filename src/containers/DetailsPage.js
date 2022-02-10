@@ -8,10 +8,10 @@ import {
   getLeague,
   getLeagueFailure,
 } from '../redux/detailsPage/league';
-import Bar from './Bar';
-import GoBackBar from './GoBackBar';
-import Loading from './Loading';
-import Header from './Header';
+import Bar from '../components/Bar';
+import GoBackBar from '../components/GoBackBar';
+import Loading from '../components/Loading';
+import Header from '../components/Header';
 
 const DetailsPage = () => {
   const { countryId } = useParams();

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import DetailsPage from './components/DetailsPage';
-import HomePage from './components/HomePage';
-import LeagueStandings from './components/LeagueStandings';
+import DetailsPage from './containers/DetailsPage';
+import HomePage from './containers/HomePage';
+import LeagueStandings from './containers/LeagueStandings';
 
 function App() {
   return (

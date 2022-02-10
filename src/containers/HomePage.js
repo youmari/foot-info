@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import fetchData from '../api/api';
 import { fetchCountriesStatus, getCountries, getCountriesFailure } from '../redux/homePage/homePage';
-import Bar from './Bar';
-import Country from './Country';
+import Bar from '../components/Bar';
+import Country from '../components/Country';
 
 const HomePage = () => {
   const [searchInput, setSearchInput] = useState('');

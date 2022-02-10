@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import store from '../../redux/store';
-import HomePage from '../HomePage';
+import HomePage from '../../containers/HomePage';
 // import LeagueDetails from '../LeagueDetails';
 
 describe('HomePage test', () => {
