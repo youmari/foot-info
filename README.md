@@ -1,5 +1,7 @@
 # foot-info
 > foot-info is a web application where you can see information about football leagues filtered by Countries and standings for every league in the world
+    
+ ![screenshot](./foot-info-screenshot.png)
 
 ## Built With
 
